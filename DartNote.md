@@ -78,3 +78,67 @@ void main() {
 
 ![下载](https://raw.githubusercontent.com/Karllzy/imagebed/main/img/%E4%B8%8B%E8%BD%BD.png)
 
+## Local Image and YAML
+
+Modify the YAML file， 同时可以被人类和机器理解的语言，用两个空格表示层级。
+
+```yaml
+# The following section is specific to Flutter.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - images/
+```
+
+添加图片到文件夹下
+
+```dart
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(
+    MaterialApp(
+        home: Scaffold(
+      appBar: AppBar(
+        title: Text("I am rich"),
+        backgroundColor: Colors.brown,
+      ),
+      body: Center(
+        child: Image(
+          image: AssetImage('images/diamond.jpeg')
+      ),
+      ),
+      backgroundColor: Colors.blueGrey,
+    )),
+  );
+}
+```
+
+## App Icon
+
+1. 图标文件的生成：
+
+​		在这个网站上能够产生appicon,网址是[链接](https://appicon.co)
+
+2. 替换掉一些图标文件：
+
+   安卓的替换位置是`android/appp/src/main/res/mipmap*`
+
+​		ios的替换位置是`ios/Runner/Assets.xcassets/`
+
+3. 生成相应的APP即可
+
+## Deploying to an Android Phone
+
+![截屏2022-07-17 23.44.00](https://raw.githubusercontent.com/Karllzy/imagebed/main/img/%E6%88%AA%E5%B1%8F2022-07-17%2023.44.00.png)
+
+## Deploying to an iPhone
+
+![image-20220718120951956](https://raw.githubusercontent.com/Karllzy/imagebed/main/img/image-20220718120951956.png)
+
