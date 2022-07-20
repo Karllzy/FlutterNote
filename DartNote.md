@@ -508,3 +508,54 @@ class _DicePageState extends State<DicePage> {
 
 就像上边那样，使用`setState((){})`那么这个匿名函数里头的东西就会被改变了。
 
+# Magic 8 Ball
+
+## code
+
+```dart
+import 'package:flutter/material.dart';
+import 'dart:math';
+
+void main() => runApp(
+      MaterialApp(
+        home: Scaffold(
+          appBar: AppBar(
+            backgroundColor: Colors.blue.shade900,
+            title: Text(
+                "Ask Me Anything",
+            ),
+          ),
+          body: BallPage(),
+        )
+      ),
+    );
+
+class BallPage extends StatefulWidget {
+  @override
+  State<BallPage> createState() => _BallPageState();
+}
+
+class _BallPageState extends State<BallPage> {
+  int ballIdx = 1;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.blue,
+      child: Center(
+        child: TextButton(
+            onPressed: (){
+              setState(() {
+                ballIdx = Random().nextInt(5) + 1;
+              });
+            },
+            child: Image.asset('images/ball$ballIdx.png',)
+        ),
+      ),
+    );
+  }
+}
+```
+
+## 效果
+
+![截屏2022-07-20 14.30.38](https://raw.githubusercontent.com/Karllzy/imagebed/main/img/%E6%88%AA%E5%B1%8F2022-07-20%2014.30.38.png)
