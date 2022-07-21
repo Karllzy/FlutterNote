@@ -559,3 +559,181 @@ class _BallPageState extends State<BallPage> {
 ## 效果
 
 ![截屏2022-07-20 14.30.38](https://raw.githubusercontent.com/Karllzy/imagebed/main/img/%E6%88%AA%E5%B1%8F2022-07-20%2014.30.38.png)
+
+# Xylophone
+
+项目材料地址： [链接](https://github.com/londonappbrewery/xylophone-flutter.git)
+
+## Flutter Packages
+
+**What is Packages?**
+
+>  是别人创造的开源代码，你可以添加到你自己的项目当中去。
+
+**Where to Find ?**
+
+> 可以从这个链接去找[🔗](https://pub.dev/)
+
+在主要版本前加入^可以限制版本不变
+
+在网站上点击install页面，把东西拷贝进yaml文件里，然后pub get，结束。
+
+在你的main.dart里头就可以直接使用了。
+
+## Play Sound
+
+```dart
+import 'package:audioplayers/audioplayers.dart';
+final player = AudioPlayer();
+player.play(AssetSource('note.wav'));
+```
+
+## Repeat Version
+
+```dart
+SafeArea(
+          child: Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Expanded(child: TextButton(
+                  onPressed: (){
+                    final player = AudioPlayer();
+                    player.play(AssetSource('note1.wav'));
+                  },
+                  child: Container(
+                    color: Colors.red,
+                    child: Center(
+                      child: Text(
+                        "Do",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontFamily: 'Pica',
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),),
+                Expanded(child: TextButton(
+                  onPressed: (){
+                    final player = AudioPlayer();
+                    player.play(AssetSource('note2.wav'));
+                  },
+                  child: Container(
+                    color: Colors.orange,
+                    child: Center(
+                      child: Text(
+                        "Re",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontFamily: 'Pica',
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),),
+                Expanded(child: TextButton(
+                  onPressed: (){
+                    final player = AudioPlayer();
+                    player.play(AssetSource('note3.wav'));
+                  },
+                  child: Container(
+                    color: Colors.yellow,
+                    child: Center(
+                      child: Text(
+                        "Mi",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontFamily: 'Pica',
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),),
+                Expanded(child: TextButton(
+                  onPressed: (){
+                    final player = AudioPlayer();
+                    player.play(AssetSource('note4.wav'));
+                  },
+                  child: Container(
+                    color: Colors.green,
+                    child: Center(
+                      child: Text(
+                        "Fa",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontFamily: 'Pica',
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),),
+                Expanded(child: TextButton(
+                  onPressed: (){
+                    final player = AudioPlayer();
+                    player.play(AssetSource('note5.wav'));
+                  },
+                  child: Container(
+                    color: Colors.indigo,
+                    child: Center(
+                      child: Text(
+                        "So",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontFamily: 'Pica',
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),),
+                Expanded(child: TextButton(
+                  onPressed: (){
+                    final player = AudioPlayer();
+                    player.play(AssetSource('note6.wav'));
+                  },
+                  child: Container(
+                    color: Colors.blue,
+                    child: Center(
+                      child: Text(
+                        "La",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontFamily: 'Pica',
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),),
+                Expanded(child: TextButton(
+                  onPressed: (){
+                    final player = AudioPlayer();
+                    player.play(AssetSource('note7.wav'));
+                  },
+                  child: Container(
+                    color: Colors.purple,
+                    child: Center(
+                      child: Text(
+                        "Ti",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontFamily: 'Pica',
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),),
+              ]
+            ),
+          ),
+        ),
+```
+
+## Function Version
+
