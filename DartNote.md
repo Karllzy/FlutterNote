@@ -737,3 +737,198 @@ SafeArea(
 
 ## Function Version
 
+![IMG_B424F31C1D04-1](https://raw.githubusercontent.com/Karllzy/imagebed/main/img/IMG_B424F31C1D04-1.jpeg)
+
+![IMG_FE28D411E8B6-1](https://raw.githubusercontent.com/Karllzy/imagebed/main/img/IMG_FE28D411E8B6-1.jpeg)
+
+## Arrow Function (lambda)
+
+```dart
+void main() => runApp(LittleSondPage());
+
+void main(){
+    LittleSoundPage();
+}
+```
+
+## Final Version
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:audioplayers/audioplayers.dart';
+
+void main() => runApp(LittleSondPage());
+
+class LittleSondPage extends StatelessWidget {
+  void playSound(int soundIdx){
+    final player = AudioPlayer();
+    player.play(
+      AssetSource('note$soundIdx.wav'),
+    );
+  }
+
+  Widget buildKey({Color? buttonColor, buttonStr, soundIdx}){
+    return TextButton(
+      onPressed: (){
+        playSound(soundIdx);
+      },
+      child: Container(
+        width: double.infinity,
+        height: 70,
+        color: buttonColor,
+        child: Center(
+          child:Text(
+              buttonStr,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontFamily: 'Pica',
+                color: Colors.black,
+              ),
+            ),
+          ),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            "Little Sound",
+            style: TextStyle(
+              fontFamily: "Pica",
+            ),
+        ),
+          backgroundColor: Colors.blueAccent.shade400,
+        ),
+        body: SafeArea(
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                buildKey(buttonColor: Colors.red, buttonStr: 'Do', soundIdx: 1),
+                buildKey(buttonColor: Colors.orange, buttonStr: 'Re', soundIdx: 2),
+                buildKey(buttonColor: Colors.yellow, buttonStr: 'Mi', soundIdx: 3),
+                buildKey(buttonColor: Colors.green, buttonStr: 'Fa', soundIdx: 4),
+                buildKey(buttonColor: Colors.indigo, buttonStr: 'So', soundIdx: 5),
+                buildKey(buttonColor: Colors.blue, buttonStr: 'La', soundIdx: 6),
+                buildKey(buttonColor: Colors.purple, buttonStr: 'Ti', soundIdx: 7)
+              ]
+            ),
+          ),
+        ),
+    );
+  }
+}
+```
+
+# Quizzler
+
+起始项目， [链接](https://github.com/londonappbrewery/quizzler-flutter.git)
+
+## List
+
+```dart
+List<Icon> scoreKeeper = [];
+```
+
+## Class
+
+```dart
+class Question {
+  String questionText;
+  bool questionAnswer;
+
+  Question({String q, bool a}) {
+    questionText = q;
+    questionAnswer = a;
+  }
+}
+
+List<Question> questionBank = [
+    Question(q: 'You can lead a cow down stairs but not up stairs.', a: false),
+    Question(q: 'Approximately one quarter of human bones are in the feet.', a: true),
+    Question(q: 'A slug\'s blood is green.', a: true),
+  ];
+```
+
+## 私有变量
+
+```dart
+_questionBank = []
+```
+
+## 类的4大支柱
+
+- 抽象Abstraction
+
+- 封装Encapsulation
+
+  使用私有变量_private
+
+- 继承Inheritance
+
+  使用extends
+
+- 多态Polymorphism
+
+​		使用@override
+
+## Class Constructors
+
+- dart存在默认的构造函数
+
+- Dart当中的构造函数和类别名称相同
+- 有一些语法糖
+
+```dart
+void main() {
+    Human jenny = Human(height: 15);
+}
+
+class Human {
+    double height;
+    
+    Human({double height}) {
+        this.height = height
+    };
+    
+    Human({this.height, this.weight});
+}
+```
+
+# BMI Calculator
+
+主题网站推荐： [dribble](https://dribbble.com/)
+
+## Flutter Themes
+
+取色工具ColorZilla
+
+```dart
+import 'package:flutter/material.dart';
+import 'input_page.dart';
+
+void main() => runApp(BMICalculator());
+
+class BMICalculator extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: Color(0xFF090D22),
+        colorScheme: ColorScheme.light().copyWith(
+          primary: Color(0xFF020A18),
+          background: Color(0xFF090D22),
+          onBackground: Colors.red,
+        ),
+        ),
+      home: InputPage(),
+    );
+  }
+}
+```
+
+## Refactor Widget
+
