@@ -932,3 +932,64 @@ class BMICalculator extends StatelessWidget {
 
 ## Refactor Widget
 
+```dart
+class BMICalculator extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: Color(0xFF090D22),
+        colorScheme: ColorScheme.light().copyWith(
+          primary: Color(0xFF020A18),
+          background: Color(0xFF090D22),
+          onBackground: Colors.red,
+        ),
+        ),
+      home: InputPage(),
+    );
+  }
+}
+```
+
+首先用上边的这种方式把页面分离开来
+
+其次，可以把部分模块拆来放进这里：
+
+```dart
+class ReusableCard extends StatelessWidget {
+  // const ReusableCard({Key key,}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.all(10.0),
+      decoration: BoxDecoration(
+        color: Color(0xFF1D1E33),
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+    );
+  }
+}
+```
+
+除此之外，还可以指定一些必须要的元素用@required语法：
+
+```dart
+class ReusableCard extends StatelessWidget {
+  // const ReusableCard({Key key,}) : super(key: key);
+  ReusableCard({@required this.color});
+
+  Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.all(10.0),
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+    );
+  }
+}
+```
+
